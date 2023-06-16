@@ -1,6 +1,7 @@
 package com.wx.detalk.ui.fragment
 
 import androidx.viewbinding.ViewBinding
+import com.blankj.utilcode.util.BarUtils
 import com.wx.base.viewbase.VbBaseFragment
 import com.wx.detalk.databinding.FragmentCommunityBinding
 import com.wx.detalk.mvvm.viewmodel.community.CommunityViewModel
@@ -10,6 +11,7 @@ import com.wx.detalk.mvvm.viewmodel.community.CommunityViewModel
  */
 class CommunityFragment: VbBaseFragment<CommunityViewModel, FragmentCommunityBinding>() {
     override fun initView() {
+        BarUtils.addMarginTopEqualStatusBarHeight(binding.layoutToolbar.ablToolbar)
     }
 
     override fun initListener() {

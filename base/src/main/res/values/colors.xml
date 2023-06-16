@@ -51,4 +51,12 @@
     <color name="white_10_color">#1AFFFFFF</color>
     <color name="white_5_color">#0DFFFFFF</color>
     <color name="white_0_color">#00FFFFFF</color>
+    <color name="color_ffd4ff00">#ffd4ff00</color>
+    <color name="color_ffffee00">#ffffee00</color>
+    <color name="color_ff141414">#ff141414</color>
+    <color name="color_ff434343">#ff434343</color>
+    <color name="color_ff292929">#ff292929</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
 </resources>

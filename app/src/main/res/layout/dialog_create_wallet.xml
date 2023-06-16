@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_ff141414"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_16">
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@mipmap/ic_dialog_close" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:text="@string/local_wallet"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16" />
+
+    <com.aries.ui.view.radius.RadiusRelativeLayout
+        android:id="@+id/rrl_createWallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_12"
+        android:padding="@dimen/dp_16"
+        app:rv_backgroundColor="@color/black"
+        app:rv_radius="@dimen/dp_16">
+
+        <com.aries.ui.view.radius.RadiusFrameLayout
+            android:id="@+id/rfl_createWallet"
+            android:layout_width="@dimen/dp_47"
+            android:layout_height="@dimen/dp_47"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_25"
+            app:rv_strokeColor="@color/color_ff434343"
+            app:rv_strokeWidth="@dimen/dp_05">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_create_wallet"
+                app:riv_corner_radius="@dimen/dp_25" />
+        </com.aries.ui.view.radius.RadiusFrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_toEndOf="@+id/rfl_createWallet"
+            android:text="@string/create_wallet"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rfl_createWallet"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_32"
+            android:layout_toEndOf="@+id/rfl_createWallet"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/no_wallet_to_create"
+            android:textColor="@color/white_40_color"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_right" />
+    </com.aries.ui.view.radius.RadiusRelativeLayout>
+
+    <com.aries.ui.view.radius.RadiusRelativeLayout
+        android:id="@+id/rrl_importWallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:padding="@dimen/dp_16"
+        app:rv_backgroundColor="@color/black"
+        app:rv_radius="@dimen/dp_16">
+
+        <com.aries.ui.view.radius.RadiusFrameLayout
+            android:id="@+id/rfl_importWallet"
+            android:layout_width="@dimen/dp_47"
+            android:layout_height="@dimen/dp_47"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_25"
+            app:rv_strokeColor="@color/color_ff434343"
+            app:rv_strokeWidth="@dimen/dp_05">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_create_wallet"
+                app:riv_corner_radius="@dimen/dp_25" />
+        </com.aries.ui.view.radius.RadiusFrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_toEndOf="@+id/rfl_importWallet"
+            android:text="@string/import_wallet"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rfl_importWallet"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_32"
+            android:layout_toEndOf="@+id/rfl_importWallet"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/already_have_wallet_to_import"
+            android:textColor="@color/white_40_color"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_right" />
+    </com.aries.ui.view.radius.RadiusRelativeLayout>
+</LinearLayout>

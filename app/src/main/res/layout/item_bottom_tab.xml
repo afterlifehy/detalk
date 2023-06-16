@@ -6,13 +6,13 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="@dimen/dp_17"
-    android:paddingBottom="@dimen/dp_17">
+    android:paddingBottom="@dimen/dp_27">
 
     <com.wx.common.widget.ImageRadioView
         android:id="@+id/irv_tab"
-        android:layout_width="@dimen/dp_27"
-        android:layout_height="@dimen/dp_27"
-        android:layout_gravity="center" />
+        android:layout_width="@dimen/dp_26"
+        android:layout_height="@dimen/dp_26"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:id="@+id/tv_tab"
@@ -23,5 +23,6 @@
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_12"
+        android:visibility="gone"
         tools:text="Setting" />
 </LinearLayout>

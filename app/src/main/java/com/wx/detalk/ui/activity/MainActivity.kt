@@ -1,6 +1,8 @@
 package com.wx.detalk.ui.activity
 
+import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -29,28 +31,35 @@ class MainActivity : VbBaseActivity<MainViewModel, ActivityMainBinding>(), View.
     private var communityBottomTab: BottomTabBean? = null
     private var mineBottomTab: BottomTabBean? = null
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        // super.onSaveInstanceState(outState)
+    }
+
     override fun initView() {
         BarUtils.setNavBarVisibility(this@MainActivity, false)
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, com.wx.base.R.color.transparent))
         initBottomTab()
     }
 
     private fun initBottomTab() {
         homeBottomTab = BottomTabBean(
-            "",
+            "home",
             HomeFragment(),
             com.wx.common.R.mipmap.ic_setting,
             com.wx.common.R.mipmap.ic_setting
         )
         bottomTabList.add(homeBottomTab!!)
+
         communityBottomTab = BottomTabBean(
-            "",
+            "community",
             CommunityFragment(),
             com.wx.common.R.mipmap.ic_setting,
             com.wx.common.R.mipmap.ic_setting
         )
         bottomTabList.add(communityBottomTab!!)
+
         mineBottomTab = BottomTabBean(
-            "",
+            "mine",
             MineFragment(),
             com.wx.common.R.mipmap.ic_setting,
             com.wx.common.R.mipmap.ic_setting
@@ -77,7 +86,7 @@ class MainActivity : VbBaseActivity<MainViewModel, ActivityMainBinding>(), View.
             supportFragmentManager,
             supportFragmentManager.beginTransaction(),
             item?.mFragment,
-            R.id.fl_mainContainer,
+            R.id.fl_container,
             item?.tabName.toString()
         )
     }
@@ -89,8 +98,11 @@ class MainActivity : VbBaseActivity<MainViewModel, ActivityMainBinding>(), View.
         return ActivityMainBinding.inflate(layoutInflater)
     }
 
+    override fun marginStatusBarView(): View? {
+        return super.marginStatusBarView()
+    }
+
     override val isFullScreen: Boolean
         get() = true
-
 
 }

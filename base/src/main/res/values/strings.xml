@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">base</string>
+    <string name="please_import_or_create_wallet_first">Please import or create wallet first</string>
+    <string name="go_now">Go Now</string>
+    <string name="nothing_yet">Nothing yet</string>
+    <string name="DAO">DAO</string>
+    <string name="CLUB">CLUB</string>
+    <string name="create_dao">Create DAO</string>
+    <string name="create_club">Create CLUB</string>
+    <string name="local_wallet">Local Wallet</string>
+    <string name="create_wallet">Create Wallet</string>
+    <string name="no_wallet_to_create">No wallet to create</string>
+    <string name="import_wallet">Import Wallet</string>
+    <string name="already_have_wallet_to_import">Already have wallet to import</string>
+    <string name="seletc_a_network">Select a Network</string>
+    <string name="Approve">Approve</string>
+    <string name="Leave">Leave</string>
+    <string name="approve">approve</string>
+    <string name="Notification">Notification</string>
+    <string name="Agreed">Agreed</string>
 </resources>

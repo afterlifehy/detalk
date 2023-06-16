@@ -28,14 +28,14 @@ class BottomTabAdapter(data: MutableList<BottomTabBean>? = null, val mOnTabSelec
             holder.vb.tvTab.setTextColor(
                 ContextCompat.getColor(
                     BaseApplication.instance(),
-                    com.wx.base.R.color.black
+                    com.wx.base.R.color.white
                 )
             )
         } else {
             holder.vb.tvTab.setTextColor(
                 ContextCompat.getColor(
                     BaseApplication.instance(),
-                    com.wx.base.R.color.black_30_color
+                    com.wx.base.R.color.white
                 )
             )
         }

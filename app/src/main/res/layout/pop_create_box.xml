@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aries.ui.view.radius.RadiusLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:rv_backgroundColor="@color/color_ff292929"
+    app:rv_radius="@dimen/dp_4">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_createDao"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_42"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:drawableStart="@mipmap/ic_crown"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center"
+        android:text="@string/create_dao"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_marginStart="@dimen/dp_30"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:background="@color/color_ff434343" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_createClub"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_42"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:drawableStart="@mipmap/ic_crown"
+        android:drawablePadding="@dimen/dp_8"
+        android:gravity="center"
+        android:text="@string/create_club"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14" />
+</com.aries.ui.view.radius.RadiusLinearLayout>

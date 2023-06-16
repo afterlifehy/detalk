@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.aries.ui.view.radius.RadiusRelativeLayout
+        android:id="@+id/rrl_approve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:padding="@dimen/dp_16"
+        app:rv_backgroundColor="@color/color_ff141414"
+        app:rv_radius="@dimen/dp_16">
+
+        <com.aries.ui.view.radius.RadiusFrameLayout
+            android:id="@+id/rfl_approve"
+            android:layout_width="@dimen/dp_47"
+            android:layout_height="@dimen/dp_47"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_25"
+            app:rv_strokeColor="@color/color_ff434343"
+            app:rv_strokeWidth="@dimen/dp_05">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/riv_head"
+                android:layout_width="@dimen/dp_46"
+                android:layout_height="@dimen/dp_46"
+                app:riv_corner_radius="@dimen/dp_25" />
+        </com.aries.ui.view.radius.RadiusFrameLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_toEndOf="@+id/rfl_approve"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            tools:text="RunBa NFT" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_alignBottom="@+id/rfl_approve"
+            android:layout_marginEnd="@dimen/dp_32"
+            android:layout_toStartOf="@+id/rtv_approve"
+            android:layout_toEndOf="@+id/rfl_approve"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/white_40_color"
+            tools:text="Runba is a gamefi app rel Runba is a gamefi app rel" />
+
+        <TextView
+            android:id="@+id/rtv_approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shape_yellow_bg"
+            android:paddingStart="@dimen/dp_12"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_12"
+            android:paddingBottom="@dimen/dp_4"
+            android:text="@string/approve"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold" />
+    </com.aries.ui.view.radius.RadiusRelativeLayout>
+</FrameLayout>
