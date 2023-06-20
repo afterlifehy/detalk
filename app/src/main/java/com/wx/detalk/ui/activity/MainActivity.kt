@@ -1,15 +1,24 @@
 package com.wx.detalk.ui.activity
 
 import android.os.Bundle
+import android.util.Base64
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.aries.ui.util.StatusBarUtil
 import com.blankj.utilcode.util.BarUtils
+import com.wx.base.BaseApplication
 import com.wx.base.arouter.ARouterMap
+import com.wx.base.ds.PreferencesDataStore
+import com.wx.base.ds.PreferencesKeys
+import com.wx.base.mvvm.base.UrlManager
+import com.wx.base.util.ToastUtil
 import com.wx.base.viewbase.VbBaseActivity
 import com.wx.common.bean.BottomTabBean
+import com.wx.common.util.Web3jUtil
 import com.wx.detalk.R
 import com.wx.detalk.adapter.BottomTabAdapter
 import com.wx.detalk.databinding.ActivityMainBinding
@@ -17,6 +26,10 @@ import com.wx.detalk.mvvm.viewmodel.MainViewModel
 import com.wx.detalk.ui.fragment.CommunityFragment
 import com.wx.detalk.ui.fragment.HomeFragment
 import com.wx.detalk.ui.fragment.MineFragment
+import kotlinx.coroutines.runBlocking
+import wallet.core.jni.AES
+import wallet.core.jni.AESPaddingMode
+import wallet.core.jni.CoinType
 import java.util.ArrayList
 
 /**
@@ -92,6 +105,35 @@ class MainActivity : VbBaseActivity<MainViewModel, ActivityMainBinding>(), View.
     }
 
     override fun initData() {
+        runBlocking {
+            val currentWallet = mViewModel.getCurrentWallet()
+            if (currentWallet != null) {
+                val mnemonicAes = currentWallet.mnemonicAes
+                val code = currentWallet.passCode
+                try {
+                    val mnemonic = AES.decryptCBC(
+                        code.toByteArray(),
+                        Base64.decode(mnemonicAes, Base64.DEFAULT),
+                        code.toByteArray(),
+                        AESPaddingMode.PKCS7
+                    )
+                    PreferencesDataStore(BaseApplication.instance()).putLong(
+                        PreferencesKeys.chainId,
+                        currentWallet.chainId
+                    )
+                    Web3jUtil.instance?.setChainId(currentWallet.chainId)
+                    Web3jUtil.instance?.importWallet(String(mnemonic), "")
+                    Web3jUtil.instance?.buildWeb3j(UrlManager.getWeb3jHttpUrl())
+                    Web3jUtil.instance?.getWalletAddress()
+                } catch (e: Exception) {
+                    ToastUtil.showToast(e.toString())
+                }
+            }
+        }
+    }
+
+    override fun providerVMClass(): Class<MainViewModel> {
+        return MainViewModel::class.java
     }
 
     override fun getVbBindingView(): ViewBinding {

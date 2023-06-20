@@ -13,6 +13,22 @@ object ARouterMap {
 
     const val NOTIFICATION = "/detalk_app/notification"
 
+    const val CONFIRM = "/detalk_app/confirm"
+
+    const val SECURITY = "/detalk_app/security"
+    const val SECURITY_TYPE = "securityType"
+    const val SECURITY_DESTINATION = "securityDestination"
+    const val SECURITY_PARAM_KEY = "securityParamKey"
+    const val SECURITY_PARAM_VALUE = "securityParamValue"
+    const val SECURITY_FRAMENT = "securityFragment"
+
+    const val RESTOREPW = "/detalk_app/restore_pw"
+
+    const val SEED_PHRASE = "/detalk_app/seedPhrase"
+    const val SEED_PHRASE_TYPE = "seedPhraseType"
+
+    const val IMPORT_MNEMONIC = "/detalk_app/importMnemonic"
+
     class common {
         companion object {
 

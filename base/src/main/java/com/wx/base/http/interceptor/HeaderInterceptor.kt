@@ -1,11 +1,21 @@
 package com.wx.base.http.interceptor
 
 import android.text.TextUtils
+import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.EncryptUtils
+import com.wx.base.util.Constant
 import kotlinx.coroutines.runBlocking
+import okhttp3.FormBody
 import okhttp3.Interceptor
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.Request
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import okhttp3.Response
 import okio.Buffer
 import org.json.JSONObject
+import java.net.URLEncoder
 import java.nio.charset.Charset
 import java.util.*
 
@@ -14,7 +24,20 @@ class HeaderInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         var sortParam = ""
 
-        val body = chain.request().body
+        var request = chain.request()
+        val addHeader = request.newBuilder()
+        runBlocking {
+            addHeader.addHeader("Content-Type", "application/json")
+                .addHeader("os", "android")
+                .addHeader("version", AppUtils.getAppVersionName())
+                .addHeader("Authorization", "token")
+//                .addHeader("sign", EncryptUtils.encryptMD5ToString(sortParam + timeStamp + Constant.secret))
+        }
+
+        val timeStamp = 1687143312779//System.currentTimeMillis().toString()
+        request = addIntoBody(request, "timestamp", timeStamp)
+
+        val body = request.body
         val buffer = Buffer()
         body?.writeTo(buffer)
         var charset = Charset.forName("UTF-8")
@@ -35,17 +58,21 @@ class HeaderInterceptor : Interceptor {
             }
         }
 
-        val addHeader = chain.request().newBuilder()
-        val timeStamp = System.currentTimeMillis().toString()
-        runBlocking {
-            addHeader.addHeader("Content-Type", "application/json")
-//                .addHeader("requestTerminal", "0")
-//                .addHeader("version", AppUtils.getAppVersionName())
-//                .addHeader("versionCode", AppUtils.getAppVersionCode().toString())
-//                .addHeader("sign", EncryptUtils.encryptMD5ToString(sortParam + timeStamp + Constant.secret))
-        }
-        val request = addHeader.build()
+        request = addIntoBody(request, "sign", EncryptUtils.encryptMD5ToString(sortParam + Constant.secret))
         return chain.proceed(request)
+    }
+
+    fun addIntoBody(request: Request, key: String, value: Any): Request {
+        val body = request.body
+        val buffer = Buffer()
+        body?.writeTo(buffer)
+        var params = buffer.readUtf8()
+        val paramsObject = com.alibaba.fastjson.JSONObject.parseObject(params)
+        paramsObject[key] = value
+        val requestBody =
+            paramsObject.toJSONString().toRequestBody("application/json;charset=UTF-8".toMediaTypeOrNull())
+        var newRequest = request.newBuilder().post(requestBody).build()
+        return newRequest
     }
 
     fun getSortJson(json: JSONObject): String {
@@ -58,11 +85,20 @@ class HeaderInterceptor : Interceptor {
         }
         var sort = ""
         val keySets: List<String> = ArrayList<String>(map.keys)
-        for (i in 0 until map.size) {
+        for (i in 0 until map.size - 1) {
             val key = keySets[i]
             val value = map[key].toString()
-            sort += key + value
+            sort += URLEncoder.encode(key, Charsets.UTF_8.name()) + "=" + URLEncoder.encode(
+                value,
+                Charsets.UTF_8.name()
+            ) + "&"
         }
+        val key = keySets[map.size - 1]
+        val value = map[key].toString()
+        sort += URLEncoder.encode(key, Charsets.UTF_8.name()) + "=" + URLEncoder.encode(
+            value,
+            Charsets.UTF_8.name()
+        )
         return sort
     }
 

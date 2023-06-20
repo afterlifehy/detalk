@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_confirm"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:paddingStart="@dimen/dp_10"
+    android:paddingEnd="@dimen/dp_10"
+    android:paddingBottom="@dimen/dp_45">
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:gravity="center"
+        android:lineHeight="@dimen/dp_16"
+        android:text="@string/please_choose_secret_phrase"
+        android:textColor="@color/white_40_color"
+        android:textSize="@dimen/sp_12" />
+
+    <FrameLayout
+        android:id="@+id/fl_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_tips"
+        android:layout_marginTop="@dimen/dp_18">
+
+        <com.aries.ui.view.radius.RadiusFrameLayout
+            android:id="@+id/rfl_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_12"
+            app:rv_backgroundColor="@color/color_ff141414"
+            app:rv_radius="@dimen/dp_8">
+
+            <com.aries.ui.view.radius.RadiusRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp_8"
+                app:rv_backgroundColor="@color/color_ff141414"
+                app:rv_radius="@dimen/dp_8">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_confirmMnemonic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.aries.ui.view.radius.RadiusRelativeLayout>
+        </com.aries.ui.view.radius.RadiusFrameLayout>
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_randomMnemonic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_input"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginTop="@dimen/dp_22"
+        android:layout_marginEnd="@dimen/dp_18" />
+
+    <TextView
+        android:id="@+id/rtv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_38"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/dp_38"
+        android:layout_marginEnd="@dimen/dp_38"
+        android:background="@drawable/shape_yellow_bg"
+        android:gravity="center"
+        android:text="@string/Confirm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16" />
+</RelativeLayout>

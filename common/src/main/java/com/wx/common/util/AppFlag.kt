@@ -1,20 +1,22 @@
 package com.wx.common.util
 
 import androidx.collection.ArrayMap
+import i18n
 
 /**
  * Created by huy  on 2022/8/15.
  */
 object AppFlag {
 
-//    val countDownMap: MutableMap<Int, String> = ArrayMap()
-//
-//    init {
-//        countDownMap[0] = R.mipmap.ic_three
-//        countDownMap[1] = R.mipmap.ic_two
-//        countDownMap[2] = R.mipmap.ic_one
-//        countDownMap[3] = R.mipmap.ic_go
-//    }
+    val securityDescribeMap: MutableMap<Int, String> = ArrayMap()
+
+    init {
+        securityDescribeMap[1] = i18n(com.wx.base.R.string.create_your_passcode)
+        securityDescribeMap[2] = i18n(com.wx.base.R.string.confirm_your_passcode)
+        securityDescribeMap[3] = i18n(com.wx.base.R.string.enter_your_passcode)
+    }
+    
+    
 
     val enMonth = arrayOf("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AGU", "SEP", "OCT", "NOV", "DEC")
 

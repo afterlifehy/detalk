@@ -1,5 +1,6 @@
 package com.wx.common.realm
 
+import com.wx.common.bean.LocalWalletBean
 import io.realm.*
 
 class RealmUtil {
@@ -62,6 +63,20 @@ class RealmUtil {
     fun addRealmList(realmObjectList: List<RealmObject>) {
         transaction =
             realm.executeTransactionAsync { realm -> realm.insert(realmObjectList) }
+    }
+
+    /**
+     * 根据地址获取钱包对象
+     */
+    fun findWalletByAddress(address: String): List<RealmObject> {
+        return realm.where(LocalWalletBean::class.java).equalTo("address", address).findAll()
+    }
+
+    /**
+     * 查询所有钱包，并根据timeStamp排序
+     */
+    fun findWalletList(): List<LocalWalletBean> {
+        return realm.where(LocalWalletBean::class.java).findAll().sort("timeStamp", Sort.DESCENDING)
     }
 
     /**

@@ -18,4 +18,20 @@
     <string name="approve">approve</string>
     <string name="Notification">Notification</string>
     <string name="Agreed">Agreed</string>
+    <string name="Confirm">Confirm</string>
+    <string name="TASK">TASK</string>
+    <string name="Community">Community</string>
+    <string name="secured_wallet">Secured Wallet</string>
+    <string name="enter_your_passcode">Enter your passcode</string>
+    <string name="forgot_passcode">Forgot Passcode</string>
+    <string name="create_your_passcode">Create your passcode</string>
+    <string name="confirm_your_passcode">Confirm your passcode</string>
+    <string name="do_not_create_a_digital_copy">*Do not create a digital copy such as a screenshot,write down your Seed Phrase in the correct order on paper</string>
+    <string name="i_have_written_down">I have written down</string>
+    <string name="press_and_hold_to_reveal">Press and hold to reveal</string>
+    <string name="please_choose_secret_phrase">*Please choose Secret Phrase in order and make sure your Secret Phrase was correct written,once forgotten,it cannot be recover.</string>
+    <string name="SEED_PHRASE">Seed Phrase</string>
+    <string name="secret_phrase">Secret phrase</string>
+    <string name="enter_your_secret_phrase">Enter your Secret Phrase</string>
+    <string name="Import_succeeded">import succeeded</string>
 </resources>

@@ -101,11 +101,11 @@ object PreferencesKeys {
     //    val WALLET_SIGN = booleanPreferencesKey("wallet_sign")
     val wallet_address by stringPreferencesKey()
 
-    val securedCode by stringPreferencesKey()
+    val securityCode by stringPreferencesKey()
+
+    val chainId by longPreferencesKey()
 
     val ticketCode by stringPreferencesKey()
-
-    val userId by stringPreferencesKey()
 
     val email by stringPreferencesKey()
 

@@ -173,4 +173,8 @@ dependencies {
 
     //lottie
     api(ThirdPart.lottie)
+
+    //banner
+    api(ThirdPart.banner)
+
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/layout_comment_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_toolbar"
+        android:layout_marginStart="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_18"
+        android:layout_marginEnd="@dimen/dp_12">
+
+        <com.aries.ui.view.radius.RadiusLinearLayout
+            android:id="@+id/rfl_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_12"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:text="@string/secret_phrase"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold" />
+
+            <com.aries.ui.view.radius.RadiusEditText
+                android:id="@+id/ret_mnemonic"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_196"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_12"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:gravity="top|start"
+                android:hint="@string/enter_your_secret_phrase"
+                android:lineSpacingExtra="@dimen/dp_10"
+                android:padding="@dimen/dp_12"
+                android:textColor="@color/white_40_color"
+                android:textColorHint="@color/white_40_color"
+                android:textCursorDrawable="@drawable/shape_cursor"
+                android:textSize="@dimen/sp_14"
+                app:rv_backgroundColor="@color/color_ff141414"
+                app:rv_radius="@dimen/dp_16">
+
+            </com.aries.ui.view.radius.RadiusEditText>
+        </com.aries.ui.view.radius.RadiusLinearLayout>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/rtv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_38"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp_38"
+        android:layout_marginEnd="@dimen/dp_38"
+        android:layout_marginBottom="@dimen/dp_36"
+        android:background="@drawable/shape_yellow_bg"
+        android:gravity="center"
+        android:text="@string/Confirm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -8,4 +9,40 @@
     <include
         android:id="@+id/layout_toolbar"
         layout="@layout/layout_comment_toolbar" />
+
+    <com.youth.banner.Banner
+        android:id="@+id/ba_ad"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_110"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_13"
+        android:layout_marginEnd="@dimen/dp_16"
+        app:banner_indicator_height="@dimen/dp_3"
+        app:banner_indicator_marginBottom="@dimen/dp_9"
+        app:banner_indicator_normal_color="@color/black_20_color"
+        app:banner_indicator_radius="@dimen/dp_2"
+        app:banner_indicator_selected_color="@color/white"
+        app:banner_indicator_selected_width="@dimen/dp_12"
+        app:banner_radius="@dimen/dp_12" />
+
+    <com.wx.common.widget.flycotablayout.SlidingTabLayout2
+        android:id="@+id/stl_community"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_22"
+        app:tl_indicator_bounce_enable="true"
+        app:tl_indicator_color="@color/color_ffffee00"
+        app:tl_indicator_corner_radius="@dimen/dp_1"
+        app:tl_indicator_height="@dimen/dp_2"
+        app:tl_indicator_width="@dimen/dp_13"
+        app:tl_tab_padding="@dimen/dp_12"
+        app:tl_textBold="SELECT"
+        app:tl_textSelectColor="@color/white"
+        app:tl_textUnselectColor="@color/white_40_color" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_community"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp_16" />
 </LinearLayout>

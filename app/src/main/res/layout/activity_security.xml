@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/layout_comment_toolbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_50"
+        android:text="@string/secured_wallet"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_8"
+        android:text="@string/enter_your_passcode"
+        android:textColor="@color/white_40_color"
+        android:textSize="@dimen/sp_14" />
+
+    <LinearLayout
+        android:id="@+id/ll_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_28"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_code1"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:background="@drawable/selector_pass_code"
+            android:button="@null"
+            android:checked="false" />
+
+        <CheckBox
+            android:id="@+id/cb_code2"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            android:background="@drawable/selector_pass_code"
+            android:button="@null"
+            android:checked="false" />
+
+        <CheckBox
+            android:id="@+id/cb_code3"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            android:background="@drawable/selector_pass_code"
+            android:button="@null"
+            android:checked="false" />
+
+        <CheckBox
+            android:id="@+id/cb_code4"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            android:background="@drawable/selector_pass_code"
+            android:button="@null"
+            android:checked="false" />
+
+        <CheckBox
+            android:id="@+id/cb_code5"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            android:background="@drawable/selector_pass_code"
+            android:button="@null"
+            android:checked="false" />
+
+        <CheckBox
+            android:id="@+id/cb_code6"
+            android:layout_width="@dimen/dp_14"
+            android:layout_height="@dimen/dp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            android:background="@drawable/selector_pass_code"
+            android:button="@null"
+            android:checked="false" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_keyBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_36"
+        android:layout_marginTop="@dimen/dp_26"
+        android:layout_marginEnd="@dimen/dp_36" />
+
+    <TextView
+        android:id="@+id/tv_forgetWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_24"
+        android:text="@string/forgot_passcode"
+        android:textColor="@color/color_ffd6fe00" />
+</LinearLayout>

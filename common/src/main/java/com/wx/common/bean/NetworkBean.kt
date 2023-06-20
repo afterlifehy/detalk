@@ -8,11 +8,13 @@ import com.wx.common.R
 class NetworkBean {
     var logo: Int = R.mipmap.ic_eth
     var name = ""
+    var chainId = 1L
 
     constructor()
 
-    constructor(logo: Int, name: String) {
+    constructor(logo: Int, name: String,chainId:Long) {
         this.logo = logo
         this.name = name
+        this.chainId = chainId
     }
 }

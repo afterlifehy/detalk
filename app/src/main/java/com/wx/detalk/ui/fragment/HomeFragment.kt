@@ -37,7 +37,7 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
     var createBoxPop: CreateBoxPop? = null
     var createWalletDialog: CreateWalletDialog? = null
     val scanResultLauncher = registerForActivityResult(ScanResultContract()) { reslut ->
-        reslut
+        ARouter.getInstance().build(ARouterMap.CONFIRM).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -100,7 +100,6 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
                 createBoxPop = null
                 createBoxPop = CreateBoxPop(requireActivity(), object : CreateBoxPop.CreateBoxPopCallBack {
                     override fun createDao() {
-
                     }
 
                     override fun createClub() {
@@ -112,6 +111,9 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
             }
 
             R.id.rtv_goNow -> {
+//                val params = HashMap<String,String>()
+//                params["wallet"] = "0x321regdsgfgrgsfaassadsd"
+//                mViewModel.login(params)
                 if (createWalletDialog == null) {
                     createWalletDialog = CreateWalletDialog(object : CreateWalletDialog.CreateWalletCallBack {
                         override fun createWallet() {
@@ -163,6 +165,15 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
         }
     }
 
+    override fun startObserve() {
+        super.startObserve()
+        mViewModel.apply {
+            loginLiveData.observe(this@HomeFragment) {
+                it
+            }
+        }
+    }
+
     override fun getVbBindingView(): ViewBinding {
         return FragmentHomeBinding.inflate(layoutInflater)
     }
@@ -170,4 +181,10 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
     override fun isRegEventBus(): Boolean {
         return true
     }
+
+    override fun providerVMClass(): Class<HomeViewModel> {
+        return HomeViewModel::class.java
+    }
+
+
 }

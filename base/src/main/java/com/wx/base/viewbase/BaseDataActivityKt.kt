@@ -48,7 +48,7 @@ abstract class BaseDataActivityKt<VM : BaseViewModel> : BaseActivity<VM>(), View
         setIsLoadContentView(false)
         setContentView(mRoot)
         super.onCreate(savedInstanceState)
-        BarUtils.setStatusBarLightMode(this, true)
+        BarUtils.setStatusBarLightMode(this, false)
     }
 
     open fun getBindingView(): View? {

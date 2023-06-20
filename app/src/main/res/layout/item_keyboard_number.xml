@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingTop="@dimen/dp_18"
+    android:paddingBottom="@dimen/dp_18">
+
+    <com.aries.ui.view.radius.RadiusTextView
+        android:id="@+id/rtv_number"
+        android:layout_width="@dimen/dp_65"
+        android:layout_height="@dimen/dp_65"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold"
+        app:rv_backgroundColor="@color/color_ff292929"
+        app:rv_radius="@dimen/dp_40"
+        tools:text="1" />
+</LinearLayout>
