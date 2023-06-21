@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_ff141414"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_16">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/Wallet"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_dialog_close" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20">
+
+        <RadioGroup
+            android:id="@+id/rg_chain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_eth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_wallet_bg"
+                android:button="@null"
+                android:drawableStart="@mipmap/ic_eth"
+                android:drawablePadding="@dimen/dp_12"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_11"
+                android:paddingEnd="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_11"
+                android:text="@string/Ethereum"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+
+            <RadioButton
+                android:id="@+id/rb_bnb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:background="@drawable/selector_wallet_bg"
+                android:button="@null"
+                android:drawableStart="@mipmap/ic_bsc"
+                android:drawablePadding="@dimen/dp_12"
+                android:paddingStart="@dimen/dp_16"
+                android:paddingTop="@dimen/dp_11"
+                android:paddingEnd="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_11"
+                android:text="@string/bnb_chain"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14" />
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/iv_addWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_add_wallet" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_20"
+        android:drawableTop="@mipmap/ic_no_data"
+        android:drawablePadding="@dimen/dp_32"
+        android:gravity="center_horizontal"
+        android:text="@string/no_data"
+        android:textColor="@color/white_40_color"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone" />
+</LinearLayout>

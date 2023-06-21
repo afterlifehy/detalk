@@ -29,6 +29,13 @@ object ARouterMap {
 
     const val IMPORT_MNEMONIC = "/detalk_app/importMnemonic"
 
+    const val SHARE = "/detalk_app/share"
+
+    const val SETTING = "/detalk_app/setting"
+
+    const val GUIDE = "/detalk_app/guide"
+
+    const val FOLLOW = "/detalk_app/follow"
     class common {
         companion object {
 

@@ -5,6 +5,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import com.wx.base.adapter.BaseBindingAdapter
 import com.wx.base.adapter.VBViewHolder
+import com.wx.base.ext.gone
 import com.wx.base.ext.hide
 import com.wx.base.ext.show
 import com.wx.detalk.databinding.ItemBoxBinding
@@ -35,6 +36,8 @@ class BoxListAdapter(data: MutableList<Int>? = null, val onClickListener: OnClic
                 holder.vb.rflNotification.show()
                 holder.vb.tvType.hide()
                 holder.vb.tvBoxName.text = i18n(com.wx.base.R.string.Notification)
+                holder.vb.rivBoxLogo.gone()
+                holder.vb.ivNoticification.show()
             }
         }
         holder.vb.rrlBox.tag = item

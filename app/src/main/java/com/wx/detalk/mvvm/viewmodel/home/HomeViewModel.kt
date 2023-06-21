@@ -3,6 +3,8 @@ package com.wx.detalk.mvvm.viewmodel.home
 import androidx.lifecycle.MutableLiveData
 import com.wx.base.mvvm.base.BaseViewModel
 import com.wx.base.mvvm.base.ErrorMessage
+import com.wx.common.bean.LocalWalletBean
+import com.wx.common.realm.RealmUtil
 import com.wx.detalk.mvvm.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -31,6 +33,18 @@ class HomeViewModel : BaseViewModel() {
             }, {
                 traverseErrorMsg(ErrorMessage(msg = response.msg, code = response.code))
             })
+        }
+    }
+
+    /**
+     * 获取当前钱包
+     */
+    fun getCurrentWallet(): LocalWalletBean? {
+        val walletList = RealmUtil.instance?.findWalletList()
+        if (walletList.isNullOrEmpty()) {
+            return null
+        } else {
+            return walletList[0]
         }
     }
 }

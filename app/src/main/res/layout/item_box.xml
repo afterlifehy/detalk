@@ -30,7 +30,15 @@
                 android:id="@+id/riv_boxLogo"
                 android:layout_width="@dimen/dp_46"
                 android:layout_height="@dimen/dp_46"
-                app:riv_corner_radius="@dimen/dp_25" />
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:id="@+id/iv_noticification"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_22"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_notification"
+                android:visibility="gone" />
         </com.aries.ui.view.radius.RadiusFrameLayout>
 
         <TextView

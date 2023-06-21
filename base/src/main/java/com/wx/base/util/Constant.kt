@@ -31,5 +31,9 @@ object Constant {
     }
 
     val PROJECT_ADDRESS = ""
+
+    val FRIENDS = 0
+    val FOLLOWING =1
+    val FOLLOWER = 2
 }
 

@@ -58,24 +58,24 @@ class MainActivity : VbBaseActivity<MainViewModel, ActivityMainBinding>(), View.
         homeBottomTab = BottomTabBean(
             "home",
             HomeFragment(),
-            com.wx.common.R.mipmap.ic_setting,
-            com.wx.common.R.mipmap.ic_setting
+            com.wx.common.R.mipmap.ic_home_checked,
+            com.wx.common.R.mipmap.ic_home_unchecked
         )
         bottomTabList.add(homeBottomTab!!)
 
         communityBottomTab = BottomTabBean(
             "community",
             CommunityFragment(),
-            com.wx.common.R.mipmap.ic_setting,
-            com.wx.common.R.mipmap.ic_setting
+            com.wx.common.R.mipmap.ic_community_checked,
+            com.wx.common.R.mipmap.ic_community_unchecked
         )
         bottomTabList.add(communityBottomTab!!)
 
         mineBottomTab = BottomTabBean(
             "mine",
             MineFragment(),
-            com.wx.common.R.mipmap.ic_setting,
-            com.wx.common.R.mipmap.ic_setting
+            com.wx.common.R.mipmap.ic_mine_checked,
+            com.wx.common.R.mipmap.ic_mine_unchecked
         )
         bottomTabList.add(mineBottomTab!!)
 

@@ -150,8 +150,8 @@ abstract class BaseActivity<VM : BaseViewModel> : SupportActivity(), ISupportAct
     open fun startObserve() {}
     abstract fun getLayoutResId(): Int
     abstract fun initView()
-    abstract fun initListener()
     abstract fun initData()
+    abstract fun initListener()
     open fun isRegEventBus(): Boolean {
         return false
     }

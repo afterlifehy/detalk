@@ -52,6 +52,7 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
         binding.layoutBoxList.rvBox.layoutManager = LinearLayoutManager(BaseApplication.instance())
         boxListAdapter = BoxListAdapter(boxList, this)
         binding.layoutBoxList.rvBox.adapter = boxListAdapter
+
     }
 
     override fun initListener() {
@@ -68,6 +69,12 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
     }
 
     override fun initData() {
+        val currentWallet = mViewModel.getCurrentWallet()
+        if (currentWallet != null) {
+            showView(2)
+        } else {
+            showView(0)
+        }
         boxList.add(0)
         boxList.add(1)
         boxList.add(2)

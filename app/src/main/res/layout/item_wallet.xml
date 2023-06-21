@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.aries.ui.view.radius.RadiusRelativeLayout
+        android:id="@+id/rrl_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:padding="@dimen/dp_16"
+        app:rv_backgroundColor="@color/black"
+        app:rv_radius="@dimen/dp_8">
+
+        <com.aries.ui.view.radius.RadiusFrameLayout
+            android:id="@+id/rfl_wallet"
+            android:layout_width="@dimen/dp_47"
+            android:layout_height="@dimen/dp_47"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_25"
+            app:rv_strokeColor="@color/color_ff434343"
+            app:rv_strokeWidth="@dimen/dp_05">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_logo_detalk3" />
+        </com.aries.ui.view.radius.RadiusFrameLayout>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_toEndOf="@+id/rfl_wallet"
+            android:text="@string/Detalk"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_walletChecked"
+            android:layout_width="@dimen/dp_12"
+            android:layout_height="@dimen/dp_9"
+            android:layout_alignTop="@+id/tv_name"
+            android:layout_alignBottom="@+id/tv_name"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_toEndOf="@+id/tv_name"
+            android:src="@mipmap/ic_wallet_checked"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="@dimen/dp_85"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_name"
+            android:layout_alignBottom="@+id/rfl_wallet"
+            android:layout_toEndOf="@+id/rfl_approve"
+            android:ellipsize="middle"
+            android:lines="1"
+            android:textColor="@color/white_40_color"
+            android:textSize="@dimen/sp_12"
+            tools:text="0x12345678901234567890" />
+
+        <TextView
+            android:id="@+id/tv_copy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rfl_wallet"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_toEndOf="@+id/tv_address"
+            android:text="@string/Copy"
+            android:textColor="@color/color_ffffee00"
+            android:textSize="@dimen/sp_12" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_right" />
+    </com.aries.ui.view.radius.RadiusRelativeLayout>
+</FrameLayout>

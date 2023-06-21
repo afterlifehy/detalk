@@ -105,6 +105,8 @@ object PreferencesKeys {
 
     val chainId by longPreferencesKey()
 
+    val isAppHaveLaunched by booleanPreferencesKey()
+
     val ticketCode by stringPreferencesKey()
 
     val email by stringPreferencesKey()
@@ -122,8 +124,6 @@ object PreferencesKeys {
     val calenderNoticeEnable by booleanPreferencesKey()
 
     val calenderNoticeTime by stringPreferencesKey()
-
-    val appLaunched by booleanPreferencesKey()
 
     fun booleanPreferencesKey() =
         ReadOnlyProperty<Any, Preferences.Key<Boolean>> { _, property -> booleanPreferencesKey(property.name) }

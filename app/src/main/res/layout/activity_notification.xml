@@ -14,6 +14,19 @@
         android:layout_height="@dimen/dp_05"
         android:background="@color/white_10_color" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_noNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_212"
+        android:drawableTop="@mipmap/ic_no_data"
+        android:drawablePadding="@dimen/dp_31"
+        android:text="@string/you_have_no_notification"
+        android:textColor="@color/white_40_color"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

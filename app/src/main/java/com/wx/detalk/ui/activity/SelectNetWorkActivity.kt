@@ -62,7 +62,7 @@ class SelectNetWorkActivity : VbBaseActivity<SelectNetworkViewModel, ActivitySel
 
     override fun initData() {
         networkList?.add(NetworkBean(com.wx.common.R.mipmap.ic_eth, "Ethereum", ethChainIdMap[BuildConfig.is_dev]!!))
-        networkList?.add(NetworkBean(com.wx.common.R.mipmap.ic_bnb, "BNB Chain", bscChainIdMap[BuildConfig.is_dev]!!))
+        networkList?.add(NetworkBean(com.wx.common.R.mipmap.ic_bsc, "BNB Chain", bscChainIdMap[BuildConfig.is_dev]!!))
 
         networkAdapter?.setList(networkList)
     }

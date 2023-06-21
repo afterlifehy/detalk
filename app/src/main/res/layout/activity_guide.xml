@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        android:id="@+id/ba_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:banner_auto_loop="false"
+        app:banner_indicator_height="@dimen/dp_7"
+        app:banner_indicator_marginBottom="@dimen/dp_150"
+        app:banner_indicator_normal_color="@color/white_40_color"
+        app:banner_indicator_normal_width="@dimen/dp_7"
+        app:banner_indicator_radius="@dimen/dp_5"
+        app:banner_indicator_selected_color="@color/color_ffffee00"
+        app:banner_indicator_selected_width="@dimen/dp_20"
+        app:banner_indicator_space="@dimen/dp_8" />
+
+    <TextView
+        android:id="@+id/tv_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:gravity="center"
+        android:text="@string/Skip"
+        android:textColor="@color/color_ffd6fe00"
+        android:textSize="@dimen/sp_14" />
+
+    <ImageView
+        android:id="@+id/iv_go"
+        android:layout_width="@dimen/dp_58"
+        android:layout_height="@dimen/dp_58"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_124"
+        android:src="@mipmap/ic_go"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -34,8 +34,8 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(){
         super.onActivityCreated(savedInstanceState)
         initVM()
         initView()
-        initListener()
         initData()
+        initListener()
         startObserve()
         if (!EventBus.getDefault().isRegistered(this) && isRegEventBus()) {
             EventBus.getDefault().register(this)
@@ -115,7 +115,7 @@ abstract class BaseFragment<VM : BaseViewModel> : Fragment(){
     open fun startObserve() {}
     abstract fun getLayoutResId(): Int
     abstract fun initView()
-    abstract fun initListener()
     abstract fun initData()
+    abstract fun initListener()
     open fun providerVMClass(): Class<VM>? = null
 }

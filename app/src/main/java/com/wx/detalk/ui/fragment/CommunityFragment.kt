@@ -15,6 +15,7 @@ import com.wx.detalk.databinding.FragmentCommunityBinding
 import com.wx.detalk.mvvm.viewmodel.community.CommunityViewModel
 import com.youth.banner.indicator.RoundLinesIndicator
 import com.youth.banner.listener.OnBannerListener
+import com.youth.banner.listener.OnPageChangeListener
 import i18n
 
 /**

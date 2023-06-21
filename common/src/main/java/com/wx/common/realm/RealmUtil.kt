@@ -1,6 +1,7 @@
 package com.wx.common.realm
 
 import com.wx.common.bean.LocalWalletBean
+import com.wx.common.util.Web3jUtil
 import io.realm.*
 
 class RealmUtil {
@@ -68,7 +69,7 @@ class RealmUtil {
     /**
      * 根据地址获取钱包对象
      */
-    fun findWalletByAddress(address: String): List<RealmObject> {
+    fun findWalletByAddress(address: String): List<LocalWalletBean> {
         return realm.where(LocalWalletBean::class.java).equalTo("address", address).findAll()
     }
 
@@ -77,6 +78,22 @@ class RealmUtil {
      */
     fun findWalletList(): List<LocalWalletBean> {
         return realm.where(LocalWalletBean::class.java).findAll().sort("timeStamp", Sort.DESCENDING)
+    }
+
+    /**
+     * 查询ETH链钱包，并根据timeStamp排序
+     */
+    fun findETHWalletList(): List<LocalWalletBean> {
+        return realm.where(LocalWalletBean::class.java).equalTo("chainId", Web3jUtil.instance?.ETH_CHAIN_ID_DEV).or()
+            .equalTo("chainId", Web3jUtil.instance?.ETH_CHAIN_ID_RELEASE).findAll().sort("timeStamp", Sort.DESCENDING)
+    }
+
+    /**
+     * 查询BSC链钱包，并根据timeStamp排序
+     */
+    fun findBSCWalletList(): List<LocalWalletBean> {
+        return realm.where(LocalWalletBean::class.java).equalTo("chainId", Web3jUtil.instance?.BSC_CHAIN_ID_DEV).or()
+            .equalTo("chainId", Web3jUtil.instance?.BSC_CHAIN_ID_RELEASE).findAll().sort("timeStamp", Sort.DESCENDING)
     }
 
     /**

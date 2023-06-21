@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/dp_24"
     android:paddingEnd="@dimen/dp_20"
     android:paddingBottom="@dimen/dp_20"
-    app:rv_backgroundColor="@color/white_bg"
+    app:rv_backgroundColor="@color/color_ff141414"
     app:rv_radius="@dimen/dp_27">
 
     <TextView
@@ -18,8 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp_20"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
         android:textStyle="bold"
         tools:text="title" />
 
@@ -27,43 +27,42 @@
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_16"
-        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/dp_20"
+        android:textColor="@color/white"
         android:textSize="@dimen/sp_14"
         tools:text="这里是辅助说明文字单行这里是辅助说明文字单行这里是辅助说明文字单行这里是辅助说明文字单行" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_28"
+        android:layout_marginTop="@dimen/dp_20"
         android:orientation="horizontal">
 
         <com.aries.ui.view.radius.RadiusTextView
             android:id="@+id/rtv_left"
             android:layout_width="0dp"
-            android:layout_height="@dimen/dp_38"
+            android:layout_height="@dimen/dp_40"
             android:layout_marginEnd="@dimen/dp_8"
             android:layout_weight="1"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white_40_color"
             android:textSize="@dimen/sp_16"
-            app:rv_radius="@dimen/dp_8"
-            app:rv_strokeColor="@color/black"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_6"
+            app:rv_strokeColor="@color/white_40_color"
             app:rv_strokeWidth="@dimen/dp_05"
             tools:text="CANCEL" />
 
-        <com.aries.ui.view.radius.RadiusTextView
+        <TextView
             android:id="@+id/rtv_right"
             android:layout_width="0dp"
-            android:layout_height="@dimen/dp_38"
+            android:layout_height="@dimen/dp_40"
             android:layout_marginStart="@dimen/dp_8"
             android:layout_weight="1"
+            android:background="@drawable/shape_yellow_bg"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_16"
-            app:rv_backgroundColor="@color/black"
-            app:rv_radius="@dimen/dp_8"
-            tools:text="CONFIRM" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16" />
     </LinearLayout>
 
 </com.aries.ui.view.radius.RadiusLinearLayout>

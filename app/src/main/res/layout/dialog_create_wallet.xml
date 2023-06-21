@@ -44,8 +44,7 @@
                 android:layout_width="@dimen/dp_20"
                 android:layout_height="@dimen/dp_20"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_create_wallet"
-                app:riv_corner_radius="@dimen/dp_25" />
+                android:src="@mipmap/ic_create_wallet" />
         </com.aries.ui.view.radius.RadiusFrameLayout>
 
         <TextView
@@ -100,10 +99,9 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:layout_width="@dimen/dp_20"
-                android:layout_height="@dimen/dp_20"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_create_wallet"
-                app:riv_corner_radius="@dimen/dp_25" />
+                android:src="@mipmap/ic_import_wallet" />
         </com.aries.ui.view.radius.RadiusFrameLayout>
 
         <TextView
