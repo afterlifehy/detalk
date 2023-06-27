@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.BarUtils
 import com.wx.base.BaseApplication
 import com.wx.base.ext.gone
 import com.wx.base.viewbase.VbBaseFragment
+import com.wx.common.event.LogOutEvent
 import com.wx.detalk.adapter.BannerAdAdapter
 import com.wx.detalk.adapter.CommunityPagerAdapter
 import com.wx.detalk.databinding.FragmentCommunityBinding
@@ -17,6 +18,8 @@ import com.youth.banner.indicator.RoundLinesIndicator
 import com.youth.banner.listener.OnBannerListener
 import com.youth.banner.listener.OnPageChangeListener
 import i18n
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 /**
  * Created by huy  on 2023/6/14.

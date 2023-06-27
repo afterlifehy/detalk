@@ -63,6 +63,7 @@
                         android:lines="1"
                         android:textColor="@color/white_40_color"
                         android:textSize="@dimen/sp_14"
+                        android:visibility="gone"
                         tools:text="0x1234567890" />
                 </LinearLayout>
 

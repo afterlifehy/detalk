@@ -1,6 +1,7 @@
 package com.wx.detalk.ui.fragment
 
 import android.content.Intent
+import android.util.Base64
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,12 +11,17 @@ import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.ClipboardUtils
 import com.wx.base.BaseApplication
 import com.wx.base.arouter.ARouterMap
+import com.wx.base.ds.PreferencesDataStore
+import com.wx.base.ds.PreferencesKeys
 import com.wx.base.ext.gone
 import com.wx.base.ext.show
+import com.wx.base.mvvm.base.UrlManager
 import com.wx.base.util.Constant
 import com.wx.base.viewbase.VbBaseFragment
 import com.wx.common.bean.LocalWalletBean
 import com.wx.common.event.AddWalletSuccessEvent
+import com.wx.common.event.LogOutEvent
+import com.wx.common.util.GlideUtils
 import com.wx.common.util.Web3jUtil
 import com.wx.detalk.R
 import com.wx.detalk.adapter.wallet.MineDaoClubAdapter
@@ -24,8 +30,12 @@ import com.wx.detalk.mvvm.viewmodel.mine.MineViewModel
 import com.wx.detalk.ui.dialog.CreateWalletDialog
 import com.wx.detalk.ui.dialog.WalletDialog
 import i18n
+import kotlinx.coroutines.runBlocking
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import wallet.core.jni.AES
+import wallet.core.jni.AESPaddingMode
 
 /**
  * Created by huy  on 2023/6/14.
@@ -41,7 +51,14 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(addWalletSuccessEvent: AddWalletSuccessEvent) {
+        initWallet()
+    }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(logOutEvent: LogOutEvent) {
+        GlideUtils.instance?.loadImage(binding.layoutToolbar.ivWallet, com.wx.common.R.mipmap.ic_wallet)
+        binding.layoutToolbar.tvName.text = i18n(com.wx.base.R.string.Wallet)
+        binding.tvAddress.gone()
     }
 
     override fun initView() {
@@ -81,6 +98,10 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
     }
 
     override fun initData() {
+        if (Web3jUtil.instance?.address != "") {
+            initWallet()
+        }
+
         binding.layoutDao.tvCreateNow.gone()
         binding.layoutDao.rvMineDaoClub.show()
         mineDaoList.add(1)
@@ -101,31 +122,80 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
     }
 
     override fun onClick(v: View?) {
+        val walletList = mViewModel.findWalletList()
         if (Web3jUtil.instance?.address.isNullOrEmpty() && v?.id != R.id.iv_setting) {
-            if (createWalletDialog == null) {
-                createWalletDialog = CreateWalletDialog(object : CreateWalletDialog.CreateWalletCallBack {
-                    override fun createWallet() {
-                        ARouter.getInstance().build(ARouterMap.SELECT_NETWORK)
-                            .withInt(ARouterMap.ADD_WALLET_TYPE, Constant.CREATE_WALLET)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
-                    }
+            if (walletList.isNullOrEmpty()) {
+                if (createWalletDialog == null) {
+                    createWalletDialog = CreateWalletDialog(object : CreateWalletDialog.CreateWalletCallBack {
+                        override fun createWallet() {
+                            ARouter.getInstance().build(ARouterMap.SELECT_NETWORK)
+                                .withInt(ARouterMap.ADD_WALLET_TYPE, Constant.CREATE_WALLET)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
+                        }
 
-                    override fun importWallet() {
-                        ARouter.getInstance().build(ARouterMap.SELECT_NETWORK)
-                            .withInt(ARouterMap.ADD_WALLET_TYPE, Constant.IMPORT_WALLET)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
+                        override fun importWallet() {
+                            ARouter.getInstance().build(ARouterMap.SELECT_NETWORK)
+                                .withInt(ARouterMap.ADD_WALLET_TYPE, Constant.IMPORT_WALLET)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
+                        }
+
+                    })
+                }
+                createWalletDialog?.show()
+                return
+            } else {
+                walletDialog = WalletDialog(object : WalletDialog.SwitchWalletCallback {
+                    override fun switchWallet(localWalletBean: LocalWalletBean) {
+                        val mnemonicAes = localWalletBean.mnemonicAes
+                        val code = localWalletBean.passCode
+                        val mnemonic = AES.decryptCBC(
+                            code.toByteArray(),
+                            Base64.decode(mnemonicAes, Base64.DEFAULT),
+                            code.toByteArray(),
+                            AESPaddingMode.PKCS7
+                        )
+                        runBlocking {
+                            PreferencesDataStore(BaseApplication.instance()).putLong(
+                                PreferencesKeys.chainId,
+                                localWalletBean.chainId
+                            )
+                        }
+                        Web3jUtil.instance?.setChainId(localWalletBean.chainId)
+                        Web3jUtil.instance?.importWallet(String(mnemonic), "")
+                        Web3jUtil.instance?.buildWeb3j(UrlManager.getWeb3jHttpUrl())
+                        Web3jUtil.instance?.getWalletAddress()
+                        mViewModel.updateWallet(localWalletBean, System.currentTimeMillis())
+                        EventBus.getDefault().post(AddWalletSuccessEvent())
                     }
 
                 })
+                walletDialog?.show()
             }
-            createWalletDialog?.show()
-            return
         }
         when (v?.id) {
             R.id.rll_wallet -> {
                 walletDialog = WalletDialog(object : WalletDialog.SwitchWalletCallback {
-                    override fun switchWallet(wallet: LocalWalletBean) {
-
+                    override fun switchWallet(localWalletBean: LocalWalletBean) {
+                        val mnemonicAes = localWalletBean.mnemonicAes
+                        val code = localWalletBean.passCode
+                        val mnemonic = AES.decryptCBC(
+                            code.toByteArray(),
+                            Base64.decode(mnemonicAes, Base64.DEFAULT),
+                            code.toByteArray(),
+                            AESPaddingMode.PKCS7
+                        )
+                        runBlocking {
+                            PreferencesDataStore(BaseApplication.instance()).putLong(
+                                PreferencesKeys.chainId,
+                                localWalletBean.chainId
+                            )
+                        }
+                        Web3jUtil.instance?.setChainId(localWalletBean.chainId)
+                        Web3jUtil.instance?.importWallet(String(mnemonic), "")
+                        Web3jUtil.instance?.buildWeb3j(UrlManager.getWeb3jHttpUrl())
+                        Web3jUtil.instance?.getWalletAddress()
+                        mViewModel.updateWallet(localWalletBean, System.currentTimeMillis())
+                        EventBus.getDefault().post(AddWalletSuccessEvent())
                     }
 
                 })
@@ -171,7 +241,8 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
             }
 
             R.id.tv_post, R.id.tv_reply, R.id.tv_like, R.id.tv_collect -> {
-
+                ARouter.getInstance().build(ARouterMap.MINE_DETAIL)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
             }
 
             R.id.tv_createNow -> {
@@ -182,6 +253,18 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
                 }
             }
         }
+    }
+
+    fun initWallet() {
+        val localWalletBean = mViewModel.getCurrentWallet()
+        if (localWalletBean!!.chainId == Web3jUtil.instance?.BSC_CHAIN_ID_DEV || localWalletBean.chainId == Web3jUtil.instance?.BSC_CHAIN_ID_RELEASE) {
+            GlideUtils.instance?.loadImage(binding.layoutToolbar.ivWallet, com.wx.common.R.mipmap.ic_bsc)
+        } else {
+            GlideUtils.instance?.loadImage(binding.layoutToolbar.ivWallet, com.wx.common.R.mipmap.ic_eth)
+        }
+        binding.layoutToolbar.tvName.text = i18n(com.wx.base.R.string.Detalk)
+        binding.tvAddress.show()
+        binding.tvAddress.text = localWalletBean.address
     }
 
     override fun startObserve() {

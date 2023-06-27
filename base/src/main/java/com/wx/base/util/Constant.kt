@@ -35,5 +35,7 @@ object Constant {
     val FRIENDS = 0
     val FOLLOWING =1
     val FOLLOWER = 2
+
+    var chainId = 56L
 }
 

@@ -30,12 +30,13 @@
 
             <ImageView
                 android:id="@+id/iv_wallet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_wallet" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

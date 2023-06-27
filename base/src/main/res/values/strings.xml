@@ -70,4 +70,21 @@
     <string name="Ethereum">Ethereum</string>
     <string name="bnb_chain">BNB Chain</string>
     <string name="Copy">Copy</string>
+    <string name="WalletDetail">Wallet Detail</string>
+    <string name="ExportSeedPhrase">Export Seed Phrase</string>
+    <string name="ModifyPassword">Modify Password</string>
+    <string name="input_password">Input Password</string>
+    <string name="delete_wallet">Delete Wallet</string>
+    <string name="old_password">Old Password</string>
+    <string name="input_old_password">Input Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="inpu_new_password">Inpu New Password</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="inpu_new_password_again">Inpu New Password again</string>
+    <string name="you_are_going_to_delete_your_wallet_from_this_device_before_that_please_read_the_following_security_tips">You are going to delete your wallet from this device,before that please read the following security tips!</string>
+    <string name="i_have_backed_up_my_private_key_or_keystore">I have backed up my private key or keystore!</string>
+    <string name="if_i_lost_my_private_key_my_assets_will_be_gone">If I lost my private key, my assets will be gone!</string>
+    <string name="the_private_key_is_removed_from_my_device_it_is_my_responsibility_to_keep_the_private_key_safe">The private key is removed from my device, it is my responsibility to keep the private key safe!</string>
+    <string name="DeleteWallet">Delete Wallet</string>
+    <string name="Edit">Edit</string>
 </resources>

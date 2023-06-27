@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/layout_comment_toolbar" />
+
+    <View
+        android:id="@+id/view_liner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_below="@+id/layout_toolbar"
+        android:background="@color/white_10_color" />
+
+    <com.aries.ui.view.radius.RadiusLinearLayout
+        android:id="@+id/rll_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_liner"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp_24"
+        android:paddingTop="@dimen/dp_17"
+        android:paddingEnd="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_17"
+        app:rv_backgroundColor="@color/color_ff141414"
+        app:rv_radius="@dimen/dp_16">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/ic_wallet_delete" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_24"
+            android:lineSpacingExtra="@dimen/dp_4"
+            android:text="@string/you_are_going_to_delete_your_wallet_from_this_device_before_that_please_read_the_following_security_tips"
+            android:textColor="@color/white_40_color"
+            android:textSize="@dimen/sp_14" />
+    </com.aries.ui.view.radius.RadiusLinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_reason1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rll_tips"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_26"
+        android:paddingEnd="@dimen/dp_16">
+
+        <TextView
+            android:id="@+id/tv_reason1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_28"
+            android:layout_toStartOf="@+id/cb_reason1"
+            android:lineHeight="@dimen/dp_21"
+            android:text="@string/i_have_backed_up_my_private_key_or_keystore"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <CheckBox
+            android:id="@+id/cb_reason1"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/selector_reason"
+            android:button="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_05"
+            android:layout_below="@+id/tv_reason1"
+            android:layout_marginTop="@dimen/dp_26"
+            android:background="@color/color_ff434343" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_reason2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_reason1"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_26"
+        android:paddingEnd="@dimen/dp_16">
+
+        <TextView
+            android:id="@+id/tv_reason2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_28"
+            android:layout_toStartOf="@+id/cb_reason2"
+            android:lineHeight="@dimen/dp_21"
+            android:text="@string/if_i_lost_my_private_key_my_assets_will_be_gone"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <CheckBox
+            android:id="@+id/cb_reason2"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/selector_reason"
+            android:button="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_05"
+            android:layout_below="@+id/tv_reason2"
+            android:layout_marginTop="@dimen/dp_26"
+            android:background="@color/color_ff434343" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_reason3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_reason2"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_26"
+        android:paddingEnd="@dimen/dp_16">
+
+        <TextView
+            android:id="@+id/tv_reason3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_28"
+            android:layout_toStartOf="@+id/cb_reason3"
+            android:lineHeight="@dimen/dp_21"
+            android:text="@string/the_private_key_is_removed_from_my_device_it_is_my_responsibility_to_keep_the_private_key_safe"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <CheckBox
+            android:id="@+id/cb_reason3"
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/selector_reason"
+            android:button="@null" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_05"
+            android:layout_below="@+id/tv_reason3"
+            android:layout_marginTop="@dimen/dp_26"
+            android:background="@color/color_ff434343" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_34"
+        android:alpha="0.4"
+        android:background="@drawable/shape_yellow_bg"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        android:text="@string/Confirm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
+</RelativeLayout>

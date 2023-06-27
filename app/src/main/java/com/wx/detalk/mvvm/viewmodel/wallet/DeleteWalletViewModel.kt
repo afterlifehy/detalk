@@ -1,15 +1,15 @@
-package com.wx.detalk.mvvm.viewmodel.mine
+package com.wx.detalk.mvvm.viewmodel.wallet
 
 import com.wx.base.mvvm.base.BaseViewModel
 import com.wx.common.bean.LocalWalletBean
 import com.wx.common.realm.RealmUtil
 
 /**
- * Created by huy  on 2023/6/14.
+ * Created by huy  on 2023/6/26.
  */
-class MineViewModel : BaseViewModel() {
-    fun updateWallet(localWalletBean: LocalWalletBean, currentTimeMillis: Long) {
-        RealmUtil.instance?.updateWallet(localWalletBean, localWalletBean.passCode, currentTimeMillis)
+class DeleteWalletViewModel: BaseViewModel() {
+    fun deleteWallet(wallet: LocalWalletBean) {
+        RealmUtil.instance?.deleteRealm(wallet)
     }
 
     /**
@@ -22,9 +22,5 @@ class MineViewModel : BaseViewModel() {
         } else {
             return walletList[0]
         }
-    }
-
-    fun findWalletList(): List<LocalWalletBean>? {
-        return RealmUtil.instance?.findWalletList()
     }
 }

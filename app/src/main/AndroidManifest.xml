@@ -169,6 +169,30 @@
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.wallet.WalletDetailActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.wallet.ModifyPwActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.wallet.DeleteWalletActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.activity.MineDetailActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

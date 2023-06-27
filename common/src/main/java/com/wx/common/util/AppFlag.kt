@@ -15,8 +15,19 @@ object AppFlag {
         securityDescribeMap[2] = i18n(com.wx.base.R.string.confirm_your_passcode)
         securityDescribeMap[3] = i18n(com.wx.base.R.string.enter_your_passcode)
     }
-    
-    
+
+    val bscChainIdMap: MutableMap<Boolean, Long> = android.util.ArrayMap()
+    val ethChainIdMap: MutableMap<Boolean, Long> = android.util.ArrayMap()
+
+    init {
+        bscChainIdMap[true] = 97L
+        bscChainIdMap[false] = 56L
+
+        ethChainIdMap[true] = 5L
+        ethChainIdMap[false] = 1L
+    }
+
+
 
     val enMonth = arrayOf("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AGU", "SEP", "OCT", "NOV", "DEC")
 

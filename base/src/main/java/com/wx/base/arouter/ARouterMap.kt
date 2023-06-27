@@ -26,6 +26,7 @@ object ARouterMap {
 
     const val SEED_PHRASE = "/detalk_app/seedPhrase"
     const val SEED_PHRASE_TYPE = "seedPhraseType"
+    const val SEED_PHRASE_ADDRESS = "seedPhraseAddress"
 
     const val IMPORT_MNEMONIC = "/detalk_app/importMnemonic"
 
@@ -36,6 +37,19 @@ object ARouterMap {
     const val GUIDE = "/detalk_app/guide"
 
     const val FOLLOW = "/detalk_app/follow"
+
+    const val WALLET_DETAIL = "/detalk_app/walletDetail"
+    const val WALLET_ADDRESS = "walletAddress"
+
+    const val MODIFY_PW = "/detalk_app/modifyPw"
+    const val MODIFY_PW_ADDRESS = "address"
+
+    const val DELETE_WALLET = "/detalk_app/deleteWallet"
+
+    const val DELETE_WALLET_ADDRESS = "address"
+
+    const val MINE_DETAIL = "/detalk_app/mineDetail"
+
     class common {
         companion object {
 

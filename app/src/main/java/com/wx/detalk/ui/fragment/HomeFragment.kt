@@ -18,6 +18,7 @@ import com.wx.base.ext.show
 import com.wx.base.util.Constant
 import com.wx.base.viewbase.VbBaseFragment
 import com.wx.common.event.AddWalletSuccessEvent
+import com.wx.common.event.LogOutEvent
 import com.wx.detalk.R
 import com.wx.detalk.adapter.BoxListAdapter
 import com.wx.detalk.contract.ScanResultContract
@@ -43,6 +44,11 @@ class HomeFragment : VbBaseFragment<HomeViewModel, FragmentHomeBinding>(), OnCli
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(addWalletSuccessEvent: AddWalletSuccessEvent) {
         showView(2)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(logOutEvent: LogOutEvent) {
+        showView(0)
     }
 
     override fun initView() {

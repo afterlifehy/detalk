@@ -15,13 +15,13 @@ import com.wx.detalk.databinding.ItemWalletBinding
  */
 class WalletAdapter(
     data: MutableList<LocalWalletBean>? = null,
-    val currentWallet: LocalWalletBean,
+    var currentWallet: LocalWalletBean?,
     val onClickListener: OnClickListener
 ) :
     BaseBindingAdapter<LocalWalletBean, ItemWalletBinding>(data) {
     override fun convert(holder: VBViewHolder<ItemWalletBinding>, item: LocalWalletBean) {
         holder.vb.tvAddress.text = item.address
-        if (item.address == currentWallet.address) {
+        if (currentWallet != null && item.address == currentWallet!!.address) {
             holder.vb.ivWalletChecked.show()
         } else {
             holder.vb.ivWalletChecked.gone()
@@ -41,4 +41,5 @@ class WalletAdapter(
     override fun createViewBinding(inflater: LayoutInflater, parent: ViewGroup): ItemWalletBinding {
         return ItemWalletBinding.inflate(inflater)
     }
+
 }

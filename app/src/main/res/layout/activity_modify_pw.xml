@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/layout_comment_toolbar" />
+
+    <View
+        android:id="@+id/view_liner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:layout_below="@+id/layout_toolbar"
+        android:background="@color/white_10_color" />
+
+    <RelativeLayout
+        android:id="@+id/rl_oldPw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:layout_below="@+id/view_liner"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:background="@drawable/layer_list_login_edit_bg">
+
+        <TextView
+            android:id="@+id/tv_oldPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/old_password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/et_oldPw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_oldPw"
+            android:gravity="end|center"
+            android:hint="@string/input_old_password"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_40_color"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_newPw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:layout_below="@+id/rl_oldPw"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:background="@drawable/layer_list_login_edit_bg">
+
+        <TextView
+            android:id="@+id/tv_newPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/new_password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/et_newPw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_newPw"
+            android:gravity="end|center"
+            android:hint="@string/inpu_new_password"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_40_color"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_repeatPw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        android:layout_below="@+id/rl_newPw"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:background="@drawable/layer_list_login_edit_bg">
+
+        <TextView
+            android:id="@+id/tv_repeatPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/repeat_password"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <EditText
+            android:id="@+id/et_repeatPw"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/tv_repeatPw"
+            android:gravity="end|center"
+            android:hint="@string/inpu_new_password_again"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_40_color"
+            android:textSize="@dimen/sp_14" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_38"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_36"
+        android:background="@drawable/shape_yellow_bg"
+        android:gravity="center"
+        android:text="@string/Confirm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
+</RelativeLayout>

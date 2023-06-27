@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.aries.ui.view.radius.RadiusLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_20"
+    app:rv_backgroundColor="@color/color_ff141414"
+    app:rv_radius="@dimen/dp_12">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ExportSeedPhrase"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_pw"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="@dimen/dp_8"
+        android:background="@drawable/layer_list_login_edit_bg"
+        android:hint="@string/input_password"
+        android:inputType="number"
+        android:maxLength="6"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white_40_color"
+        android:textSize="@dimen/sp_14" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:orientation="horizontal">
+
+        <com.aries.ui.view.radius.RadiusTextView
+            android:id="@+id/rtv_cancel"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp_8"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:text="@string/Cancel"
+            android:textColor="@color/white_40_color"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            app:rv_backgroundColor="@color/transparent"
+            app:rv_radius="@dimen/dp_6"
+            app:rv_strokeColor="@color/white_40_color"
+            app:rv_strokeWidth="@dimen/dp_05" />
+
+        <TextView
+            android:id="@+id/rtv_confirm"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:layout_weight="1"
+            android:background="@drawable/shape_yellow_bg"
+            android:gravity="center"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:text="@string/Confirm"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+    </LinearLayout>
+</com.aries.ui.view.radius.RadiusLinearLayout>

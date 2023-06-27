@@ -106,5 +106,6 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp_24"
         android:text="@string/forgot_passcode"
-        android:textColor="@color/color_ffd6fe00" />
+        android:textColor="@color/color_ffd6fe00"
+        android:visibility="gone" />
 </LinearLayout>

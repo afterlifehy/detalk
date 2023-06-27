@@ -14,6 +14,7 @@ import com.wx.base.arouter.ARouterMap
 import com.wx.base.ds.PreferencesDataStore
 import com.wx.base.ds.PreferencesKeys
 import com.wx.base.mvvm.base.UrlManager
+import com.wx.base.util.Constant
 import com.wx.base.util.ToastUtil
 import com.wx.common.bean.LocalWalletBean
 import com.wx.common.event.AddWalletSuccessEvent
@@ -68,6 +69,10 @@ class ImportMnemonicActivity : VbBaseActivity<ImportMnemonicViewModel, ActivityI
                 mnemonic =
                     mnemonicTempList.toString().substring(1, mnemonicTempList.toString().length - 1).replace(",", "")
                 wallet = Web3jUtil.instance?.importWallet(mnemonic, "")
+                runBlocking {
+                    PreferencesDataStore(BaseApplication.instance()).putLong(PreferencesKeys.chainId, Constant.chainId)
+                }
+                Web3jUtil.instance?.setChainId(Constant.chainId)
                 Web3jUtil.instance?.buildWeb3j(UrlManager.getWeb3jHttpUrl())
                 Web3jUtil.instance?.getWalletAddress()
                 if (wallet != null) {

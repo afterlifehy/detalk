@@ -67,6 +67,16 @@ class RealmUtil {
     }
 
     /**
+     * 更新钱包
+     */
+    fun updateWallet(realmObject: LocalWalletBean, passcode: String, timestamp: Long) {
+        realm.executeTransaction { realm ->
+            realmObject.passCode = passcode
+            realmObject.timeStamp = timestamp
+        }
+    }
+
+    /**
      * 根据地址获取钱包对象
      */
     fun findWalletByAddress(address: String): List<LocalWalletBean> {

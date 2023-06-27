@@ -44,6 +44,7 @@ class MainActivity : VbBaseActivity<MainViewModel, ActivityMainBinding>(), View.
     private var communityBottomTab: BottomTabBean? = null
     private var mineBottomTab: BottomTabBean? = null
 
+
     override fun onSaveInstanceState(outState: Bundle) {
         // super.onSaveInstanceState(outState)
     }

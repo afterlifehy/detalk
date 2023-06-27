@@ -55,6 +55,7 @@ class SeedPhraseActivity : VbBaseActivity<SeedPhraseViewModel, ActivitySeedPhras
     var confirmCount = 0
     var type = Constant.SEED_PHRASE_SHOW
     var wallet: HDWallet? = null
+    var address = ""
 
     override fun initView() {
         BarUtils.setStatusBarColor(this, ContextCompat.getColor(this, com.wx.base.R.color.transparent))
@@ -81,6 +82,7 @@ class SeedPhraseActivity : VbBaseActivity<SeedPhraseViewModel, ActivitySeedPhras
             randomMnemonicAdapter = RandomMnemonicAdapter(randomMnemonicList, this)
             binding.layoutConfirm.rvRandomMnemonic.adapter = randomMnemonicAdapter
         } else if (type == Constant.SEED_PHRASE_BACKUP) {
+            address = intent.getStringExtra(ARouterMap.SEED_PHRASE_ADDRESS).toString()
             binding.layoutShow.tvHold.show()
 
             binding.layoutShow.rvSeedPhrase.setHasFixedSize(true)
@@ -124,6 +126,10 @@ class SeedPhraseActivity : VbBaseActivity<SeedPhraseViewModel, ActivitySeedPhras
     override fun initData() {
         if (type == Constant.SEED_PHRASE_SHOW) {
             wallet = Web3jUtil.instance?.createWallet("")
+            runBlocking {
+                PreferencesDataStore(BaseApplication.instance()).putLong(PreferencesKeys.chainId, Constant.chainId)
+            }
+            Web3jUtil.instance?.setChainId(Constant.chainId)
             Web3jUtil.instance?.buildWeb3j(UrlManager.getWeb3jHttpUrl())
             Web3jUtil.instance?.getWalletAddress()
             runBlocking {
@@ -137,7 +143,17 @@ class SeedPhraseActivity : VbBaseActivity<SeedPhraseViewModel, ActivitySeedPhras
                 mnemonicAdapter?.setNewInstance(mnemonicList)
             }
         } else if (type == Constant.SEED_PHRASE_BACKUP) {
-            mnemonicList = Web3jUtil.instance?.getMnemonic()?.split(" ") as MutableList<String>
+            val localWalletBean = RealmUtil.instance?.findWalletByAddress(address)!![0]
+            val mnemonicAes = localWalletBean.mnemonicAes
+            val code = localWalletBean.passCode
+            val mnemonic = AES.decryptCBC(
+                code.toByteArray(),
+                Base64.decode(mnemonicAes, Base64.DEFAULT),
+                code.toByteArray(),
+                AESPaddingMode.PKCS7
+            )
+            wallet = HDWallet(String(mnemonic), "")
+            mnemonicList = wallet!!.mnemonic().split(" ") as MutableList<String>
             mnemonicAdapter?.setNewInstance(mnemonicList)
         }
     }
@@ -186,7 +202,8 @@ class SeedPhraseActivity : VbBaseActivity<SeedPhraseViewModel, ActivitySeedPhras
                             ),
                             Base64.DEFAULT
                         )
-                        val localWalletBean = LocalWalletBean(address, code, data, chainId!!, System.currentTimeMillis())
+                        val localWalletBean =
+                            LocalWalletBean(address, code, data, chainId!!, System.currentTimeMillis())
                         RealmUtil.instance?.addRealm(localWalletBean)
                         EventBus.getDefault().post(AddWalletSuccessEvent())
                         addWalletAddress()

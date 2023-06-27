@@ -97,6 +97,10 @@ class Web3jUtil private constructor() {
         return address
     }
 
+    fun clearAddress() {
+        address = ""
+    }
+
     fun getMnemonic(): String {
         if (wallet != null) {
             return wallet?.mnemonic().toString()
