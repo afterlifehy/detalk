@@ -16,10 +16,7 @@ import com.wx.detalk.databinding.DialogExportSeedPhraseBinding
  * Created by huy  on 2023/6/26.
  */
 class ExportSeedPhraseDialog(val callback: ExportSeedPhraseCallBack) :
-    VBBaseLibDialog<DialogExportSeedPhraseBinding>(
-        ActivityCacheManager.instance().getCurrentActivity()!!,
-        com.wx.base.R.style.CommonBottomDialogStyle
-    ), OnClickListener {
+    VBBaseLibDialog<DialogExportSeedPhraseBinding>(ActivityCacheManager.instance().getCurrentActivity()!!), OnClickListener {
 
     init {
         initView()

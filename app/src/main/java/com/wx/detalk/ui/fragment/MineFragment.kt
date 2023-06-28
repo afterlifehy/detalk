@@ -211,7 +211,8 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
             }
 
             R.id.rl_person -> {
-
+                ARouter.getInstance().build(ARouterMap.MINE_DETAIL).withInt(ARouterMap.MINE_DETAIL_TAB, 0)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
             }
 
             R.id.tv_address -> {
@@ -241,7 +242,25 @@ class MineFragment : VbBaseFragment<MineViewModel, FragmentMineBinding>(), OnCli
             }
 
             R.id.tv_post, R.id.tv_reply, R.id.tv_like, R.id.tv_collect -> {
-                ARouter.getInstance().build(ARouterMap.MINE_DETAIL)
+                var tab = 0
+                when (v.id) {
+                    R.id.tv_post -> {
+                        tab = 0
+                    }
+
+                    R.id.tv_reply -> {
+                        tab = 1
+                    }
+
+                    R.id.tv_like -> {
+                        tab = 2
+                    }
+
+                    R.id.tv_collect -> {
+                        tab = 3
+                    }
+                }
+                ARouter.getInstance().build(ARouterMap.MINE_DETAIL).withInt(ARouterMap.MINE_DETAIL_TAB, tab)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).navigation()
             }
 

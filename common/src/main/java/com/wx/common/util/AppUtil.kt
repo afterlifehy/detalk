@@ -5,11 +5,15 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
+import android.text.Spannable
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import com.blankj.utilcode.util.TimeUtils
+import com.wx.base.BaseApplication
 import com.wx.base.help.ActivityCacheManager
+import com.zrq.spanbuilder.Spans
+import com.zrq.spanbuilder.TextStyle
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.text.ParseException
@@ -250,28 +254,28 @@ object AppUtil {
         return endDate
     }
 
-//    //textview不同字体大小，颜色
-//    fun getSpan(strings: Array<String>, sizes: IntArray, colors: IntArray): Spannable? {
-//        val builder: Spans.Builder = Spans.builder()
-//        for (i in strings.indices) {
-//            builder.text(strings[i], sizes[i], BaseApplication.instance().resources.getColor(colors[i]))
-//        }
-//        return builder.build()
-//    }
-//
-//    //textview不同字体大小，颜色
-//    fun getSpan(strings: Array<String>, sizes: IntArray, colors: IntArray, textStyles: Array<TextStyle>): Spannable? {
-//        val builder: Spans.Builder = Spans.builder()
-//        for (i in strings.indices) {
-//            if (!TextUtils.isEmpty(strings[i])) {
-//                builder.text(strings[i], sizes[i], BaseApplication.instance().resources.getColor(colors[i]))
-//                    .style(
-//                        textStyles[i]
-//                    )
-//            }
-//        }
-//        return builder.build()
-//    }
+    //textview不同字体大小，颜色
+    fun getSpan(strings: Array<String>, sizes: IntArray, colors: IntArray): Spannable? {
+        val builder: Spans.Builder = Spans.builder()
+        for (i in strings.indices) {
+            builder.text(strings[i], sizes[i], BaseApplication.instance().resources.getColor(colors[i]))
+        }
+        return builder.build()
+    }
+
+    //textview不同字体大小，颜色
+    fun getSpan(strings: Array<String>, sizes: IntArray, colors: IntArray, textStyles: Array<TextStyle>): Spannable? {
+        val builder: Spans.Builder = Spans.builder()
+        for (i in strings.indices) {
+            if (!TextUtils.isEmpty(strings[i])) {
+                builder.text(strings[i], sizes[i], BaseApplication.instance().resources.getColor(colors[i]))
+                    .style(
+                        textStyles[i]
+                    )
+            }
+        }
+        return builder.build()
+    }
 
     /**
      * 根据百分比改变颜色透明度

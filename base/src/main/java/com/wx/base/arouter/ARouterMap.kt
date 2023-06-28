@@ -49,7 +49,9 @@ object ARouterMap {
     const val DELETE_WALLET_ADDRESS = "address"
 
     const val MINE_DETAIL = "/detalk_app/mineDetail"
+    const val MINE_DETAIL_TAB = "tab"
 
+    const val PERSON_DETAIL = "/detalk_app/personDetail"
     class common {
         companion object {
 

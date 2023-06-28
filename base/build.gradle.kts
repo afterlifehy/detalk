@@ -177,4 +177,5 @@ dependencies {
     //banner
     api(ThirdPart.banner)
 
+    api(ThirdPart.spanBuilder)
 }

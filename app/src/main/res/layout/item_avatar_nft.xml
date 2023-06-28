@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_ff141414"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_05"
+        android:background="@color/color_ff434343" />
+
+    <RelativeLayout
+        android:id="@+id/rl_nft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_16"
+        android:paddingBottom="@dimen/dp_16">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/riv_nft"
+            android:layout_width="@dimen/dp_47"
+            android:layout_height="@dimen/dp_47"
+            android:layout_centerVertical="true"
+            app:riv_corner_radius="@dimen/dp_25" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_toEndOf="@+id/riv_nft"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold"
+            tools:text="David" />
+
+        <ImageView
+            android:id="@+id/iv_hook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_nft_hook"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

@@ -87,4 +87,5 @@
     <string name="the_private_key_is_removed_from_my_device_it_is_my_responsibility_to_keep_the_private_key_safe">The private key is removed from my device, it is my responsibility to keep the private key safe!</string>
     <string name="DeleteWallet">Delete Wallet</string>
     <string name="Edit">Edit</string>
+    <string name="Avatar">Avatar</string>
 </resources>

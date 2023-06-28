@@ -1,13 +1,16 @@
 package com.wx.detalk.ui.fragment
 
+import android.content.Intent
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
+import com.alibaba.android.arouter.launcher.ARouter
 import com.aries.ui.view.radius.RadiusTextView
 import com.wx.base.BaseApplication
+import com.wx.base.arouter.ARouterMap
 import com.wx.base.dialog.DialogHelp
 import com.wx.base.ext.i18N
 import com.wx.base.util.Constant
@@ -95,7 +98,8 @@ class FollowFragment : VbBaseFragment<FollowFragmentViewModel, FragmentFollowBin
             }
 
             R.id.rrl_follow -> {
-
+                ARouter.getInstance().build(ARouterMap.PERSON_DETAIL).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .navigation()
             }
         }
     }

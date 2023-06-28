@@ -2,6 +2,7 @@ package com.wx.detalk.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
@@ -10,6 +11,7 @@ import com.blankj.utilcode.util.BarUtils
 import com.wx.base.arouter.ARouterMap
 import com.wx.base.util.Constant
 import com.wx.base.viewbase.VbBaseActivity
+import com.wx.detalk.R
 import com.wx.detalk.adapter.FollowPagerAdapter
 import com.wx.detalk.databinding.ActivityFollowBinding
 import com.wx.detalk.mvvm.viewmodel.mine.FollowAcViewModel
@@ -20,7 +22,7 @@ import i18n
  * Created by huy  on 2023/6/21.
  */
 @Route(path = ARouterMap.FOLLOW)
-class FollowActivity : VbBaseActivity<FollowAcViewModel, ActivityFollowBinding>() {
+class FollowActivity : VbBaseActivity<FollowAcViewModel, ActivityFollowBinding>(), OnClickListener {
     var tabList: MutableList<String> = ArrayList()
     var fragmentList: MutableList<Fragment> = ArrayList()
 
@@ -49,6 +51,15 @@ class FollowActivity : VbBaseActivity<FollowAcViewModel, ActivityFollowBinding>(
     }
 
     override fun initListener() {
+        binding.ivBack.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.iv_back -> {
+                onBackPressedSupport()
+            }
+        }
     }
 
     override fun getVbBindingView(): ViewBinding {
@@ -61,4 +72,5 @@ class FollowActivity : VbBaseActivity<FollowAcViewModel, ActivityFollowBinding>(
     override fun marginStatusBarView(): View {
         return binding.ablToolbar
     }
+
 }

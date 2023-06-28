@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ff141414"
+    android:paddingTop="@dimen/dp_16">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_16">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/riv_head"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            app:riv_corner_radius="@dimen/dp_20" />
+
+        <TextView
+            android:id="@+id/tv_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_toEndOf="@+id/riv_head"
+            android:ellipsize="end"
+            android:lineHeight="@dimen/dp_20"
+            android:lines="2"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14"
+            tools:text="Runba is a gamefi app released on No joined club. You canRunba is a gamefi app released on No joined club. You can" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_reply"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_toEndOf="@+id/riv_head"
+            android:textColor="@color/white_40_color"
+            android:textSize="@dimen/sp_12"
+            tools:text="16 mins ago" />
+
+        <com.aries.ui.view.radius.RadiusRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_time"
+            android:layout_marginTop="@dimen/dp_16"
+            android:padding="@dimen/dp_16"
+            app:rv_backgroundColor="@color/black"
+            app:rv_radius="@dimen/dp_8"
+            app:rv_strokeColor="@color/color_ff434343"
+            app:rv_strokeWidth="@dimen/dp_05">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/riv_originHead"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                app:riv_corner_radius="@dimen/dp_20" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_toEndOf="@+id/riv_originHead"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                android:textStyle="bold"
+                tools:text="BAYC to the MOON" />
+
+            <TextView
+                android:id="@+id/tv_originTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/riv_originHead"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_toEndOf="@+id/riv_originHead"
+                android:textColor="@color/white_40_color"
+                android:textSize="@dimen/sp_12"
+                tools:text="16 mins ago" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/riv_originHead"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_toEndOf="@+id/riv_originHead"
+                android:ellipsize="end"
+                android:lines="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                tools:text="Runba is a gamefi app released on No joined club. You can access the clubf…" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_toEndOf="@+id/riv_originHead" />
+        </com.aries.ui.view.radius.RadiusRelativeLayout>
+    </RelativeLayout>
+</FrameLayout>
